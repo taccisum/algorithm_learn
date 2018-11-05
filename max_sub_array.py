@@ -1,4 +1,5 @@
 # 分治法
+# 最大子数组问题
 
 
 def find_max_crossing_sub_arr(arr, start=None, end=None):
