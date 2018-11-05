@@ -83,9 +83,29 @@ def merge_sort(nums):
     right = merge_sort(nums[mid:])
     return merge(left, right)
 
+def bin_find(nums, num):
+    if len(nums) <= 0:
+        print('not found')
+        return None
+    mid = int(len(nums)/2)
+    if nums[mid] > num:
+        print('search %s' % nums[:mid])
+        return bin_find(nums[:mid], num)
+    elif nums[mid] < num:
+        print('search %s' % nums[mid + 1:])
+        return bin_find(nums[mid + 1:], num)
+    elif nums[mid] == num:
+        print('found')
+        return nums[mid]
+
 
 if __name__ == '__main__':
     print(insert_sort([3, 1, 4, 2, 5], False))
     print(insert_sort([3, 1, 4, 2, 5], True))
     print(choose_sort([3, 1, 2, 5, 4]))
     print(merge_sort([3, 1, 2, 5, 4]))
+    print(bin_find(merge_sort([3, 1, 2, 5, 4]), 3))
+    print(bin_find(merge_sort([3, 1, 2, 5, 4]), 4))
+    print(bin_find(merge_sort([3, 1, 2, 5, 4]), 5))
+    print(bin_find(merge_sort([3, 1, 2, 5, 4]), 6))
+    print(bin_find(merge_sort([3, 1, 2, 5, 4]), 0))
